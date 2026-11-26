@@ -17,7 +17,7 @@ window.SITE = {
     school: "서울 거원중학교",
     contact: "", // 사이트에 적을 연락처
     closingLine: "", // 마무리 한 줄. 비우면 "AI는 도구, 설계는 학생과 교사가 합니다"를 씁니다
-    siteUrl: "" // 배포한 사이트 주소 (예: https://아이디.github.io/jeju-talk/). 비우면 배포된 곳에서 열었을 때 그 주소로 QR을 만듭니다
+    siteUrl: "https://raph-alpaca.github.io/jeju-talk/" // 배포한 사이트 주소. "이 사이트 다시 보기"와 마지막 장면의 QR이 이 주소로 만들어집니다
   },
 
   // 1부. AI로 바이브하다
