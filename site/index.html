@@ -26,7 +26,7 @@
         <dl class="cover-meta">
           <div><dt>일시</dt><dd data-bind="talk.date"></dd></div>
           <div><dt>시간</dt><dd data-bind="talk.period"></dd></div>
-          <div><dt>강의실</dt><dd data-bind="talk.room"></dd></div>
+          <div data-hide-empty="talk.room"><dt>강의실</dt><dd data-bind="talk.room"></dd></div>
         </dl>
       </div>
       <div class="cover-main">
@@ -586,7 +586,7 @@
           <span>(<span data-bind="talk.school"></span>)</span>
         </p>
         <dl class="contact-list">
-          <div><dt>연락처</dt><dd data-bind="talk.contact"></dd></div>
+          <div data-hide-empty="talk.contact"><dt>연락처</dt><dd data-bind="talk.contact"></dd></div>
           <div><dt>이 사이트</dt><dd data-site-address></dd></div>
         </dl>
       </div>

@@ -109,6 +109,10 @@
     if (filled(v)) openInNewTab(el, v.trim());
     else el.hidden = true;
   });
+  // data-hide-empty: 값이 비어 있으면 그 줄을 통째로 숨긴다 (data.js에 값을 적으면 다시 보인다)
+  $all("[data-hide-empty]").forEach(function (el) {
+    if (!filled(get(el.getAttribute("data-hide-empty")))) el.hidden = true;
+  });
   // data-empty-of: 값이 비어 있을 때만 보인다
   $all("[data-empty-of]").forEach(function (el) {
     if (filled(get(el.getAttribute("data-empty-of")))) el.hidden = true;
