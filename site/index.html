@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 창의융합교육 한마당 발표</title>
+  <script>
+    // 주소 뒤에 ?mode=present 가 붙으면 발표 모드, 아니면 복습 모드
+    document.documentElement.className =
+      new URLSearchParams(location.search).get("mode") === "present" ? "present" : "review";
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="stage" id="stage">
+
+    <!-- ================= 여는 장면 ================= -->
+
+    <!-- 여는 장면 1. 표지 -->
+    <section class="scene cover" id="cover" data-part="0" data-label="표지" data-rail="off">
+      <div class="cover-head">
+        <p class="cover-event">
+          <span data-bind="talk.event"></span>
+          <span class="cover-track" data-bind="talk.track"></span>
+        </p>
+        <dl class="cover-meta">
+          <div><dt>일시</dt><dd data-bind="talk.date"></dd></div>
+          <div><dt>시간</dt><dd data-bind="talk.period"></dd></div>
+          <div><dt>강의실</dt><dd data-bind="talk.room"></dd></div>
+        </dl>
+      </div>
+      <div class="cover-main">
+        <h1 class="cover-title" data-bind="talk.title" data-split=":" data-fit="124,72,480"></h1>
+      </div>
+      <p class="cover-speaker">
+        <strong data-bind="talk.speaker"></strong>
+        <span>(<span data-bind="talk.school"></span>)</span>
+      </p>
+      <ol class="cover-parts present-only">
+        <li data-part="1"><span class="cp-num">1부</span><span class="cp-name">AI로 바이브하다</span></li>
+        <li data-part="2"><span class="cp-num">2부</span><span class="cp-name">우리가 만드는 디지털 과학책</span></li>
+        <li data-part="3"><span class="cp-num">3부</span><span class="cp-name">과학을 잇(IT)다</span></li>
+      </ol>
+      <aside class="notes">
+        <p>단축키: ← → 이동, F 전체 화면, N 메모 표시/숨김, 숫자 1·2·3 각 부의 첫 장면.</p>
+      </aside>
+    </section>
+
+    <!-- 여는 장면 2. 오늘의 세 가지 -->
+    <section class="scene three" id="three" data-part="0" data-label="오늘의 세 가지">
+      <h2 class="scene-title">오늘의 세 가지</h2>
+      <p class="lead review-only">수업 자료 세 가지를 차례로 소개합니다. 칸을 누르면 해당 부로 이동합니다.</p>
+      <div class="three-grid">
+        <a class="part-field" data-part="1" data-goto-part="1" href="#p1-intro">
+          <span class="part-top">
+            <span class="part-num">1<small>부</small></span>
+            <span class="part-meta">6차시</span>
+          </span>
+          <strong class="part-name">AI로 바이브하다</strong>
+          <span class="part-desc">성취기준 기반 바이브 코딩 수업</span>
+          <span class="part-from">중등 전환기 연구팀 프로토타입</span>
+        </a>
+        <a class="part-field" data-part="2" data-goto-part="2" href="#p2-flow">
+          <span class="part-top">
+            <span class="part-num">2<small>부</small></span>
+            <span class="part-meta">5차시</span>
+          </span>
+          <strong class="part-name">우리가 만드는 디지털 과학책</strong>
+          <span class="part-desc">시뮬레이션을 AI와 함께 만들어 책장에 출간하는 프로젝트</span>
+          <span class="part-from">2026 과학탐구 선도학교 발전협의체</span>
+        </a>
+        <a class="part-field" data-part="3" data-goto-part="3" href="#p3-intro">
+          <span class="part-top">
+            <span class="part-num">3<small>부</small></span>
+            <span class="part-meta">프로그램 2개</span>
+          </span>
+          <strong class="part-name">과학을 잇(IT)다</strong>
+          <span class="part-desc">3D 지도에서 하는 고1 과학 탐구 수업</span>
+          <span class="part-from">AI융합교육 교사연구회</span>
+        </a>
+      </div>
+      <aside class="notes">
+        <p>칸을 누르거나 숫자 1·2·3을 누르면 해당 부의 첫 장면으로 건너뜁니다.</p>
+      </aside>
+    </section>
+
+    <!-- 여는 장면 3. 이 사이트 다시 보기 -->
+    <section class="scene std revisit" id="revisit" data-part="0" data-label="이 사이트 다시 보기">
+      <div class="revisit-body">
+        <h2 class="scene-title">이 사이트 다시 보기</h2>
+        <p class="big-line">발표가 끝나도 이 주소로 다시 볼 수 있습니다</p>
+        <p class="site-address" data-site-address></p>
+        <p class="para review-only">발표에서 쓴 화면을 그대로 옮겨 두었습니다. 주소를 저장해 두거나, QR을 옆 선생님께 보여 주세요. 링크는 모두 새 탭으로 열립니다.</p>
+      </div>
+      <div class="site-qr" data-site-qr></div>
+      <aside class="notes">
+        <p>지금 QR을 찍어 두면 실습 때 링크를 따라오기 쉽습니다. 사진으로 찍어 두어도 된다고 안내합니다.</p>
+      </aside>
+    </section>
+
+    <!-- ================= 1부. AI로 바이브하다 ================= -->
+
+    <!-- 1부 1. 한 줄 소개 -->
+    <section class="scene field-scene part-open" id="p1-intro" data-part="1" data-tone="dark" data-label="한 줄 소개">
+      <header class="open-head">
+        <span class="open-num">1<small>부</small></span>
+        <span class="open-name">AI로 바이브하다</span>
+      </header>
+      <p class="open-line">
+        <span class="open-not">AI가 답을 대신 만드는 수업이 아니라,</span>
+        <strong>학생이 학습의 도착점을 먼저 설계하는 수업</strong>
+      </p>
+      <p class="open-from">중등 전환기 연구팀에서 프로토타입으로 만든, 성취기준 기반 바이브 코딩 수업</p>
+      <p class="para review-only">학생 모둠이 성취기준을 직접 고르고, 그 성취기준에서 "무엇을 알고 무엇을 할 수 있어야 하는가"(평가요소)를 먼저 정합니다. 그다음 그 평가요소를 익히게 해 주는 학습 앱을 AI와 함께 만듭니다. 코드는 한 줄도 쓰지 않습니다.</p>
+      <aside class="notes">
+        <p>발표 제목의 "코딩 0줄, 성취기준 1줄"이 이 수업입니다. 거꾸로 설계(역설계): 도착점인 성취기준과 평가요소를 먼저 정하고 앱은 나중에 만듭니다.</p>
+      </aside>
+    </section>
+
+    <!-- 1부 2. 6차시 흐름 -->
+    <section class="scene std flow" id="p1-flow" data-part="1" data-label="6차시 흐름">
+      <h2 class="scene-title">여섯 차시의 흐름</h2>
+      <p class="lead">도착점을 먼저 정하고, 앱은 그다음에 만듭니다</p>
+      <ol class="flow6">
+        <li><span class="flow-n">1<small>차시</small></span><strong>성취기준 고르기</strong><span class="flow-d">평가요소 초안 쓰기</span></li>
+        <li><span class="flow-n">2<small>차시</small></span><strong>평가요소 다듬기</strong><span class="flow-d">만들 앱 구상하기</span></li>
+        <li><span class="flow-n">3<small>차시</small></span><strong>프롬프트 실험</strong><span class="flow-d">Gemini로 결과 비교</span></li>
+        <li><span class="flow-n">4<small>차시</small></span><strong>검증과 수정</strong><span class="flow-d">평가요소가 담겼는지 점검</span></li>
+        <li><span class="flow-n">5<small>차시</small></span><strong>구현과 배포</strong><span class="flow-d">Lovable로 앱 올리기</span></li>
+        <li><span class="flow-n">6<small>차시</small></span><strong>발표와 성찰</strong><span class="flow-d">앞 장을 추려 발표하기</span></li>
+      </ol>
+      <ul class="flow-groups present-only">
+        <li class="span-2"><strong>거꾸로 설계</strong><span>성취기준과 평가요소부터 정합니다</span></li>
+        <li class="span-3"><strong>AI와 만들기</strong><span>실험하고, 점검해 고치고, 실제 앱으로 올립니다</span></li>
+        <li><strong>나누기</strong><span>발표하고 돌아봅니다</span></li>
+      </ul>
+      <p class="para review-only">1~2차시는 성취기준을 고르고 평가요소를 정하는 거꾸로 설계, 3~5차시는 AI로 실험하고 점검해 고친 뒤 실제 앱으로 올리는 단계, 6차시는 발표와 성찰입니다. 모둠은 차시마다 프로젝트 페이지를 한 장씩 채우고, 6차시에는 새로 만들지 않고 앞 장을 추려 발표합니다.</p>
+      <aside class="notes">
+        <p>3차시는 Gemini, 5차시는 Lovable을 씁니다. 6차시 발표 자료는 새로 만들지 않고 1~5차시에 채운 장을 추립니다.</p>
+      </aside>
+    </section>
+
+    <!-- 1부 3. 모둠 프로젝트 페이지 양식 (12장 갤러리) -->
+    <section class="scene std gallery" id="p1-template" data-part="1" data-label="프로젝트 페이지 양식">
+      <h2 class="scene-title">모둠 프로젝트 페이지 양식</h2>
+      <p class="para review-only">모둠이 차시마다 한 장씩 채우는 구글 슬라이드 양식입니다. 모두 12장이고, 그림을 누르면 크게 보입니다.</p>
+      <button type="button" class="gal-view" id="gal-view" aria-label="이 장 크게 보기">
+        <img id="gal-img" src="img/vibe/01.jpg" alt="">
+      </button>
+      <div class="gal-info">
+        <p class="gal-count"><span id="gal-n">1</span> / 12</p>
+        <p class="gal-caption" id="gal-caption"></p>
+        <div class="gal-nav">
+          <button type="button" id="gal-prev">이전 장</button>
+          <button type="button" id="gal-next">다음 장</button>
+        </div>
+      </div>
+      <ol class="gal-thumbs" id="gal-thumbs"></ol>
+      <a class="btn gal-open" data-href="part1.slidesTemplate">구글 슬라이드 양식 열기</a>
+      <aside class="notes">
+        <p>↑ ↓ 키로 장을 넘깁니다. 그림을 누르면 크게 보이고, 그때는 ← → 로 넘기고 Esc로 닫습니다.</p>
+        <p>5쪽 "이 페이지 사용법"의 역설계 흐름과 모둠 역할(과학 검증가, 프롬프트 기록가, 진행 정리가)을 짚어 줍니다.</p>
+      </aside>
+    </section>
+
+    <!-- 1부 4. 학생 자료 보기 (단추는 발표 모드 전용) -->
+    <section class="scene std students" id="p1-students" data-part="1" data-label="학생 자료 보기">
+      <h2 class="scene-title">학생 자료 보기</h2>
+      <p class="big-line present-only">학생들이 실제로 만든 자료를 함께 봅니다</p>
+      <p class="present-only"><a class="btn btn-xl" data-href-if="part1.padlet">학생 자료 열기(패들렛)</a></p>
+      <p class="cue present-only" data-empty-of="part1.padlet">다른 창에서 보여 드립니다</p>
+      <p class="para review-only">학생 자료는 연수 현장에서만 보여 드렸습니다.</p>
+      <aside class="notes">
+        <p>패들렛은 다른 브라우저 창에 미리 열어 둡니다. Alt+Tab으로 넘어갔다가 돌아옵니다.</p>
+        <p>학생 이름·얼굴·학번이 보이는 자료는 이 사이트에 넣지 않았습니다.</p>
+      </aside>
+    </section>
+
+    <!-- 1부 5. 2부로 넘어가는 다리 -->
+    <section class="scene std bridge" id="p1-bridge" data-part="1" data-label="2부로 넘어가며">
+      <h2 class="bridge-line">이 프로토타입이 협의체 자료로 자랐습니다</h2>
+      <div class="bridge-shelf present-only">
+        <div class="bridge-book" data-part="1">
+          <span class="bb-kind">프로토타입</span>
+          <strong>AI로 바이브하다</strong>
+          <span class="bb-from">중등 전환기 연구팀</span>
+        </div>
+        <span class="bridge-arrow" aria-hidden="true"></span>
+        <div class="bridge-book is-big" data-part="2">
+          <span class="bb-kind">협의체 자료</span>
+          <strong>우리가 만드는 디지털 과학책</strong>
+          <span class="bb-from">2026 과학탐구 선도학교 발전협의체</span>
+        </div>
+      </div>
+      <p class="para review-only">1부의 수업은 프로토타입이었습니다. 이 수업을 바탕으로 2026 과학탐구 선도학교 발전협의체에서 책과 사이트를 갖춘 수업 자료를 만들었습니다. 2부에서 소개합니다.</p>
+    </section>
+
+    <!-- ================= 2부. 우리가 만드는 디지털 과학책 ================= -->
+
+    <!-- 2부 1. 한눈에 보기: 5차시 흐름 -->
+    <section class="scene field-scene part-open shelf-open" id="p2-flow" data-part="2" data-tone="dark" data-label="5차시 한눈에 보기">
+      <header class="open-head">
+        <span class="open-num">2<small>부</small></span>
+        <span class="open-name">우리가 만드는 디지털 과학책</span>
+      </header>
+      <p class="open-sub">학생 모둠이 과학 원리를 담은 시뮬레이션을 AI와 함께 만들어 학교 책장에 "출간"하는 5차시 프로젝트</p>
+      <ol class="books5">
+        <li data-n="1"><span class="b-num">1</span><strong>기획</strong><span class="b-do">선생님 책 3권을 조작하며 변인과 원리 찾기</span></li>
+        <li data-n="2"><span class="b-num">2</span><strong>집필</strong><span class="b-do">기획서 쓰고, 모둠 프롬프트로 첫 결과물 만들기</span></li>
+        <li data-n="3"><span class="b-num">3</span><strong>편집과 교정</strong><span class="b-do">과학 오류를 찾아 Talk Log로 고치기</span></li>
+        <li data-n="4"><span class="b-num">4</span><strong>출간</strong><span class="b-do">출판 의뢰하고 우리 책을 책장에 꽂기</span></li>
+        <li data-n="5"><span class="b-num">5</span><strong>북 페어</strong><span class="b-do">친구들의 책을 읽고 리뷰 남기기</span></li>
+      </ol>
+      <p class="open-from">2026 과학탐구 선도학교 발전협의체에서 만들었습니다. 개포중학교 김희진, 거원중학교 조승호, 송례중학교 이정연</p>
+      <p class="para review-only">학생은 과학책의 독자에서 저자가 됩니다. 목표는 "멋진 앱"이 아니라 과학 개념을 정확히 설명하는 책입니다. 다섯 차시 내내 무엇을 바꾸면(조작) 무엇이 달라지고(결과) 무엇을 같게 하는가(통제)라는 같은 틀로 읽고, 설계하고, 고칩니다.</p>
+      <aside class="notes">
+        <p>세 가지 원칙: 변인으로 보기, AI를 의심하기, Talk Log 남기기. "AI가 만들었으니 맞겠지"가 아니라 "내가 확인했으니 맞다"가 되게 합니다.</p>
+        <p>3차시(편집과 교정)가 가장 어렵습니다. AI가 틀린 곳을 학생이 교과서 개념으로 찾아 고칩니다.</p>
+      </aside>
+    </section>
+
+    <!-- 2부 2. 사이트는 두 개 -->
+    <section class="scene std sites" id="p2-sites" data-part="2" data-label="사이트는 두 개">
+      <h2 class="scene-title">사이트는 두 개입니다</h2>
+      <div class="sites-shelf">
+        <article class="site-book is-student">
+          <p class="site-who">학생용</p>
+          <h3>학생 책장</h3>
+          <p class="site-domain" data-bind-host="part2.studentSite"></p>
+          <p class="site-desc">책장 코드를 넣으면 우리 반 책장이 열립니다. 책장 안에 학생 활동지와 출판 의뢰하기가 있습니다.</p>
+          <p class="site-actions">
+            <a class="btn" data-href="part2.studentSite">학생 책장 사이트 열기</a>
+            <a class="btn btn-line" data-href-if="@trainingShelf">연수용 책장 열기</a>
+          </p>
+        </article>
+        <article class="site-book is-teacher">
+          <p class="site-who">선생님용</p>
+          <h3>선생님 화면</h3>
+          <p class="site-domain" data-bind-host="part2.teacherSite"></p>
+          <p class="site-desc">책장을 만들고, 출판 의뢰를 승인하고, 학생 활동지 명단을 봅니다. 구글 계정으로 로그인합니다.</p>
+          <p class="site-actions">
+            <a class="btn btn-navy" data-href="part2.teacherSite">선생님 화면 열기</a>
+          </p>
+        </article>
+      </div>
+      <p class="para review-only">학생 이름은 어디에도 받지 않고 학번만 씁니다. 선생님용 사이트는 사용 신청을 하고 승인을 받은 구글 계정으로 로그인합니다.</p>
+      <aside class="notes">
+        <p>학생 책장 맨 윗줄에는 선생님 예시 책 11권이 늘 꽂혀 있습니다. 「단열 재료 비교」가 시범에 알맞습니다.</p>
+        <p>선생님 화면은 미리 로그인해 둡니다. 책장 카드의 QR 보기, 활동지 명단, 승인 대기를 보여 줍니다.</p>
+      </aside>
+    </section>
+
+    <!-- 2부 3. 수업 영상 -->
+    <section class="scene std video-scene" id="p2-video" data-part="2" data-label="수업 영상">
+      <div class="video-head">
+        <h2 class="scene-title">수업 영상</h2>
+        <p class="video-cap">같은 협의체 송례중학교의 공개 수업</p>
+      </div>
+      <div class="video-box" data-video="part2.video">
+        <p class="video-off">이 영상은 연수 현장에서 상영했습니다</p>
+      </div>
+      <p class="video-hint present-only">스페이스바로 재생하고 멈춥니다</p>
+      <aside class="notes">
+        <p>2분 28초. 2026. 11. 17. 송례중학교 3학년 연합 수업 "오늘은 여기, 출간 날!"입니다. 스페이스바로 재생/일시정지.</p>
+        <p>영상 파일은 이 노트북의 site/media 폴더에만 있고 인터넷에는 올라가지 않습니다.</p>
+      </aside>
+    </section>
+
+    <!-- 2부 4. 실습: 선생님도 한 모둠이 되어 보기 -->
+    <section class="scene practice" id="practice" data-part="2" data-label="실습">
+      <div class="practice-qr" id="practice-qr">
+        <div class="qr-tabs" id="practice-tabs" hidden>
+          <button type="button" data-qr="worksheet" aria-pressed="true">활동지 QR</button>
+          <button type="button" data-qr="padlet" aria-pressed="false">패들렛 QR</button>
+        </div>
+        <div class="qr-card" id="practice-card"></div>
+        <p class="qr-address" id="practice-address"></p>
+        <a class="btn review-only" id="practice-open" target="_blank" rel="noopener" hidden>연수용 활동지 열기</a>
+      </div>
+      <div class="practice-body">
+        <p class="tag">실습</p>
+        <h2 class="practice-title">선생님도 한 모둠이 되어 보기</h2>
+        <p class="para review-only">연수에서는 선생님들이 학생이 되어 활동지에 들어와, 같은 모둠 번호를 고른 사람끼리 한 칸을 함께 써 보았습니다. 한 명이 쓰면 모둠 모두의 화면에 바로 보입니다.</p>
+        <ol class="steps">
+          <li><span class="step-num" data-n="1">1</span><p>QR로 활동지에 들어옵니다</p></li>
+          <li><span class="step-num" data-n="2">2</span><p>학번 5자리와 비밀번호 4자리를 넣고, <br>안내받은 모둠 번호를 고릅니다</p></li>
+          <li><span class="step-num" data-n="3">3</span><p>모둠 칸에 한 줄을 쓰고, <br>옆 사람 화면에 바로 보이는지 확인합니다</p></li>
+        </ol>
+      </div>
+      <aside class="notes">
+        <p>결과물을 만들 시간은 없습니다. "같은 반·같은 모둠 번호끼리 한 칸을 같이 쓴다"는 점만 체험하게 합니다. 이어서 선생님 화면의 활동지 명단을 보여 줍니다.</p>
+        <p>학번은 학년 1자리 + 반 2자리 + 번호 2자리입니다. 같은 반이어야 칸이 함께 쓰이므로 앞 세 자리를 하나로 정해 말해 줍니다(예: 101 + 자리 번호). 비밀번호 4자리는 각자 정합니다.</p>
+        <p>"로그인하지 않고 이 기기에만 쓰기"를 누르면 모둠 칸이 나눠지지 않습니다. Q 키: 활동지 QR과 패들렛 QR 전환.</p>
+      </aside>
+    </section>
+
+    <!-- 2부 5. 책자 소개 -->
+    <section class="scene std books" id="p2-books" data-part="2" data-label="책자 소개">
+      <div class="books-covers">
+        <button type="button" class="zoomable" data-zoom="img/book-teacher.jpg" data-caption="교사용 수업 가이드 표지">
+          <img src="img/book-teacher.jpg" alt="교사용 수업 가이드 표지" loading="lazy">
+        </button>
+        <button type="button" class="zoomable" data-zoom="img/book-student.jpg" data-caption="학생 책 표지">
+          <img src="img/book-student.jpg" alt="학생 책 표지" loading="lazy">
+        </button>
+      </div>
+      <div class="books-body">
+        <h2 class="scene-title">책자 두 권</h2>
+        <dl class="books-list">
+          <div>
+            <dt>교사용 수업 가이드 <small>28쪽</small></dt>
+            <dd>차시마다 예시 답, 발문, 45분 흐름, 사이트 조작을 담았습니다.</dd>
+            <dd class="books-open present-only"><a class="btn btn-navy" data-local="part2.teacherBookFile" hidden>교사용 책자 펼쳐 보기</a></dd>
+          </div>
+          <div>
+            <dt>학생 책 <small>16쪽</small></dt>
+            <dd>예시 책 읽기부터 책장에 꽂기까지, 다섯 차시를 기록합니다.</dd>
+            <dd class="books-open present-only"><a class="btn btn-navy" data-local="part2.studentBookFile" hidden>학생 책 펼쳐 보기</a></dd>
+          </div>
+        </dl>
+        <p class="books-line">사이트 없이 책만으로도 생각을 정리하고 기록할 수 있습니다</p>
+        <p class="para review-only">다만 1·5차시의 책 조작, 2·3차시의 AI 작업, 4차시의 출판 의뢰는 기기와 사이트가 필요합니다. 책자는 표지만 실었습니다. 표지를 누르면 크게 보입니다.</p>
+      </div>
+      <aside class="notes">
+        <p>"펼쳐 보기" 단추는 이 노트북에서만 보입니다(site/media 폴더의 PDF를 새 탭으로 엽니다). 배포된 사이트에는 PDF를 올리지 않았습니다.</p>
+        <p>교사용 책자는 학생 책과 같은 쪽을 펼쳐 놓고 수업하도록 만들었습니다. 5쪽 "처음 시작하기"부터 보시라고 안내합니다.</p>
+      </aside>
+    </section>
+
+    <!-- 2부 6. 평가 기준표 요약 -->
+    <section class="scene std rubric" id="p2-rubric" data-part="2" data-label="평가 기준표">
+      <div class="rubric-head">
+        <h2 class="scene-title">평가 기준표</h2>
+        <p class="lead">결과물만이 아니라 과정을 봅니다</p>
+      </div>
+      <ul class="rubric-stack">
+        <li data-n="1"><strong>변인 설계</strong><span>학생 책 3~6쪽</span></li>
+        <li data-n="2"><strong>과학 개념의 정확성</strong><span>출판된 책</span></li>
+        <li data-n="3"><strong>수정 과정</strong><span>학생 책 10~12쪽, Talk Log</span></li>
+        <li data-n="4"><strong>책 소개와 소통</strong><span>학생 책 14쪽, 출판 의뢰서</span></li>
+        <li data-n="5"><strong>협력과 리뷰</strong><span>학생 책 7·15쪽, 모둠 대화</span></li>
+      </ul>
+      <p class="rubric-more">항목마다 잘함, 보통, 노력이 필요함의 세 단계로 봅니다. 자세한 내용은 교사용 책자 26쪽에 있습니다.</p>
+      <p class="para review-only">평가의 근거는 학생 책, 활동지와 모둠 대화, 출판된 책입니다. 선생님 화면에서 출판된 책 목록을 엑셀 파일(CSV)로 받을 수 있고, 활동지 명단에서 모둠별 대화와 Talk Log를 볼 수 있습니다.</p>
+      <aside class="notes">
+        <p>항목 이름 오른쪽은 평가 근거가 남는 곳입니다. 학교 평가 계획에 맞게 항목과 단계를 바꿔 쓰시라고 안내합니다.</p>
+      </aside>
+    </section>
+
+    <!-- 2부 7. 복습 모드에만: 직접 해 보기 -->
+    <section class="scene review-only more" id="p2-more" data-part="2" data-label="직접 해 보기">
+      <h2 class="scene-title">연수가 끝난 뒤 직접 해 보기</h2>
+      <p class="para">로그인 없이 눌러 볼 수 있는 연습용 화면이 두 가지 있습니다. 여기서 한 일은 학생에게 보이지 않습니다.</p>
+      <ul class="try-list">
+        <li>
+          <a class="btn btn-navy" data-href="part2.previewShelf">미리보기 책장 열기</a>
+          <span>학생 화면 연습용입니다.</span>
+        </li>
+        <li>
+          <a class="btn btn-navy" data-href="part2.tour">선생님 화면 둘러보기 열기</a>
+          <span>선생님 화면 연습용입니다. 승인과 명단 단추를 눌러 볼 수 있습니다.</span>
+        </li>
+      </ul>
+      <h3 class="sub-title">사용 신청 방법</h3>
+      <ol class="plain-steps">
+        <li>선생님 화면(<span data-bind-host="part2.teacherSite"></span>)에서 구글로 로그인합니다.</li>
+        <li>사용 신청 화면에 학교 이름과 성함을 적고 사용 신청을 누릅니다.</li>
+        <li>승인되면 학교 이름, 성함, 책장 이름을 적어 책장을 만듭니다. 책장 코드가 자동으로 나옵니다.</li>
+        <li>학생에게 QR을 띄우거나 책장 코드를 알려 줍니다.</li>
+      </ol>
+      <p class="para">신청은 수업 1~2주 전에 해 두면 안심입니다. 자세한 순서는 교사용 수업 가이드 5~8쪽에 있습니다.</p>
+    </section>
+
+    <!-- ================= 3부. 과학을 잇(IT)다 ================= -->
+
+    <!-- 3부 1. 한 줄 소개 -->
+    <section class="scene field-scene part-open" id="p3-intro" data-part="3" data-tone="dark" data-label="한 줄 소개">
+      <header class="open-head">
+        <span class="open-num">3<small>부</small></span>
+        <span class="open-name">과학을 잇(IT)다</span>
+      </header>
+      <p class="open-sub">3D 지도에서 하는 고1 과학 탐구 수업</p>
+      <div class="open-pair">
+        <p><span class="who">학생은</span><span>지도를 걸어 자료를 찾아 읽고 답을 씁니다</span></p>
+        <p><span class="who">선생님은</span><span>한 화면에서 반 전체의 진행과 답을 봅니다</span></p>
+      </div>
+      <p class="open-from"><span data-bind="part3.groupName"></span>에서 만들었습니다. 노동규, 조승호, 한빛모은, 조승재</p>
+      <aside class="notes">
+        <p>학생은 설치 없이 링크로 들어옵니다. 선생님 화면 하나로 반 전체를 봅니다.</p>
+      </aside>
+    </section>
+
+    <!-- 3부 2. 두 프로그램 -->
+    <section class="scene std programs" id="p3-programs" data-part="3" data-label="두 프로그램">
+      <h2 class="scene-title">프로그램은 두 개입니다</h2>
+      <div class="program-grid">
+        <article class="program is-netzero">
+          <img src="img/it-netzero.jpg" alt="NET ZERO ECO-CITY의 3D 도시 지도 화면" loading="lazy">
+          <div class="program-body">
+            <p class="program-top"><strong>NET ZERO ECO-CITY</strong><span class="chip">4차시</span></p>
+            <p class="program-q">에너지는 보존되는데 왜 절약하고 탄소배출을 줄여야 할까?</p>
+            <p class="program-desc">실제 배출량·에너지 자료를 읽고 우리 도시를 설계합니다.</p>
+            <ol class="program-units review-only">
+              <li>1차시 왜 필요한가</li>
+              <li>2차시 도시의 전략</li>
+              <li>3차시 에너지와 탄소</li>
+              <li>4차시 설계와 검증</li>
+            </ol>
+          </div>
+        </article>
+        <article class="program is-fossil">
+          <img src="img/it-fossil.jpg" alt="화석 수사대의 3D 섬 지도 화면" loading="lazy">
+          <div class="program-body">
+            <p class="program-top"><strong>화석 수사대</strong><span class="chip">사건 4개</span></p>
+            <p class="program-q">생물의 기록이 급격히 줄어든 이유는 무엇일까?</p>
+            <p class="program-desc">화석과 지층 자료를 증거로 지구의 과거를 추리합니다.</p>
+            <ol class="program-units review-only">
+              <li>사건 1 다섯 번의 침묵</li>
+              <li>사건 2 시간이 뒤섞인 방</li>
+              <li>사건 3 표본실의 거짓말</li>
+              <li>사건 4 지구의 기억을 연결하라</li>
+            </ol>
+          </div>
+        </article>
+      </div>
+      <aside class="notes">
+        <p>NET ZERO ECO-CITY는 1차시 왜 필요한가, 2차시 도시의 전략, 3차시 에너지와 탄소, 4차시 설계와 검증.</p>
+        <p>화석 수사대는 사건 1 다섯 번의 침묵, 2 시간이 뒤섞인 방, 3 표본실의 거짓말, 4 지구의 기억을 연결하라.</p>
+      </aside>
+    </section>
+
+    <!-- 3부 3. 사용 영상 -->
+    <section class="scene std video-scene" id="p3-video" data-part="3" data-label="사용 영상">
+      <div class="video-head">
+        <h2 class="scene-title">사용 영상</h2>
+        <p class="video-cap">선생님 활용 안내 영상, 수업 열기</p>
+      </div>
+      <div class="video-box" data-video="part3.video">
+        <p class="video-off">이 영상은 연수 현장에서 상영했습니다</p>
+      </div>
+      <p class="video-hint present-only">스페이스바로 재생하고 멈춥니다</p>
+      <aside class="notes">
+        <p>2분 3초. 선생님 화면에서 수업을 여는 과정을 담은 안내 영상입니다. 스페이스바로 재생/일시정지.</p>
+        <p>영상 파일은 이 노트북의 site/media 폴더에만 있습니다.</p>
+      </aside>
+    </section>
+
+    <!-- 3부 4. 시연: 수업 여는 순서 -->
+    <section class="scene std demo" id="p3-demo" data-part="3" data-label="시연">
+      <div class="demo-steps">
+        <h2 class="scene-title">수업 여는 순서</h2>
+        <ol class="route">
+          <li>
+            <span class="route-n">1</span>
+            <div><strong>선생님 화면에서 방 만들기</strong><p>수업 이름과 비밀번호를 적으면 입장 코드가 나옵니다.</p></div>
+          </li>
+          <li>
+            <span class="route-n">2</span>
+            <div><strong>학생 링크 나눠 주기</strong><p>학생은 학번과 이름만 적고 들어옵니다.</p></div>
+          </li>
+          <li>
+            <span class="route-n">3</span>
+            <div><strong>진행을 보며 수업하기</strong><p>누가 어디에서 몇 단계를 하고 있는지 한 화면에 보입니다.</p></div>
+          </li>
+        </ol>
+      </div>
+      <div class="demo-open">
+        <a class="btn btn-p3 is-netzero" data-href="part3.netzero">NET ZERO ECO-CITY 열기</a>
+        <a class="btn btn-p3" data-href="part3.fossil">화석 수사대 열기</a>
+        <a class="btn btn-p3 is-line" data-href="part3.teacher">선생님 화면 따라 하기 열기</a>
+      </div>
+      <aside class="notes">
+        <p>"선생님 화면 따라 하기"는 1차시 순서대로 따라 하는 안내 쪽입니다. 그 안에 예시 수업(눌러도 저장되지 않음)과 실제 선생님 화면으로 가는 링크가 있습니다.</p>
+        <p>방 비밀번호는 다시 볼 수 없으니 시연용으로 미리 정해 둡니다.</p>
+      </aside>
+    </section>
+
+    <!-- 3부 5. 선생님 화면 기능 -->
+    <section class="scene std features" id="p3-teacher" data-part="3" data-label="선생님 화면 기능">
+      <h2 class="scene-title">선생님 화면에서 하는 일</h2>
+      <ul class="feature-grid">
+        <li><strong>모두 멈춤, 모두 모으기</strong><p>학생 화면을 한 번에 멈추고 한곳으로 부릅니다.</p></li>
+        <li><strong>설명 화면 띄우기</strong><p>슬라이드를 모든 학생 화면에 띄웁니다.</p></li>
+        <li><strong>답 모아보기</strong><p>한 질문의 답을 반 전체 보기 모드로 볼 수 있습니다.</p></li>
+        <li><strong>채점표</strong><p>루브릭에 따라 단계별로 점수를 줍니다.</p></li>
+      </ul>
+      <p class="para review-only">학생 쪽에는 자료실과 갤러리가 있습니다. 지도 위 자료실에서 탐구 자료의 원본 출처를 확인하고, 갤러리에서 친구의 카드를 보고 질문을 남깁니다.</p>
+      <aside class="notes">
+        <p>학생 쪽에는 자료실(탐구 자료의 원본 출처 확인)과 갤러리(친구의 카드를 보고 질문 남기기)가 있습니다.</p>
+      </aside>
+    </section>
+
+    <!-- ================= 마무리 ================= -->
+
+    <!-- 마무리 1. 세 자료의 공통점 -->
+    <section class="scene closing" id="closing" data-part="4" data-label="세 자료의 공통점" data-rail="off">
+      <p class="closing-kicker">세 자료에 공통으로 담은 생각</p>
+      <div class="closing-main">
+        <h2 class="closing-line" data-bind="talk.closingLine" data-default="AI는 도구, 설계는 학생과 교사가 합니다" data-fit="136,80,470"></h2>
+      </div>
+      <ol class="cover-parts present-only">
+        <li data-part="1"><span class="cp-num">1부</span><span class="cp-name">학생이 도착점을 먼저 설계합니다</span></li>
+        <li data-part="2"><span class="cp-num">2부</span><span class="cp-name">학생이 AI의 결과를 확인하고 고칩니다</span></li>
+        <li data-part="3"><span class="cp-num">3부</span><span class="cp-name">선생님이 반 전체를 보며 수업합니다</span></li>
+      </ol>
+      <ul class="closing-list review-only">
+        <li data-part="1"><strong>1부</strong> 학생이 학습의 도착점을 먼저 설계합니다.</li>
+        <li data-part="2"><strong>2부</strong> 학생이 AI가 만든 결과를 직접 확인하고 고칩니다.</li>
+        <li data-part="3"><strong>3부</strong> 선생님이 반 전체의 진행과 답을 보며 수업합니다.</li>
+      </ul>
+    </section>
+
+    <!-- 마무리 2. 자료 모음 -->
+    <section class="scene std resources" id="resources" data-part="4" data-label="자료 모음">
+      <h2 class="scene-title">자료 모음</h2>
+      <p class="lead review-only">이 사이트에 나온 링크를 한곳에 모았습니다. 모두 새 탭으로 열립니다.</p>
+      <div class="res-grid">
+        <section class="res-col" data-part="1">
+          <h3>1부 AI로 바이브하다</h3>
+          <ul>
+            <li><a data-href="part1.slidesTemplate">구글 슬라이드 양식 열기</a></li>
+          </ul>
+        </section>
+        <section class="res-col" data-part="2">
+          <h3>2부 우리가 만드는 디지털 과학책</h3>
+          <ul>
+            <li><a data-href="part2.studentSite">학생 책장 사이트 열기</a></li>
+            <li><a data-href="part2.teacherSite">선생님 화면 열기</a></li>
+            <li><a data-href="@trainingShelf">연수용 책장 열기</a></li>
+            <li><a data-href="@worksheet">연수용 활동지 열기</a></li>
+            <li><a data-href="part2.previewShelf">미리보기 책장 열기</a></li>
+            <li><a data-href="part2.tour">선생님 화면 둘러보기 열기</a></li>
+          </ul>
+        </section>
+        <section class="res-col" data-part="3">
+          <h3>3부 과학을 잇(IT)다</h3>
+          <ul>
+            <li><a data-href="part3.netzero">NET ZERO ECO-CITY 열기</a></li>
+            <li><a data-href="part3.fossil">화석 수사대 열기</a></li>
+            <li><a data-href="part3.teacher">선생님 화면 따라 하기 열기</a></li>
+          </ul>
+        </section>
+      </div>
+      <div class="res-files review-only">
+        <h3 class="sub-title">책자와 포스터</h3>
+        <p class="para">표지만 실었습니다. 그림을 누르면 크게 보입니다.</p>
+        <ul class="file-covers">
+          <li>
+            <button type="button" class="zoomable" data-zoom="img/book-teacher.jpg" data-caption="교사용 수업 가이드 표지"><img src="img/book-teacher.jpg" alt="교사용 수업 가이드 표지" loading="lazy"></button>
+            <span>교사용 수업 가이드</span>
+            <a data-download="teacherBook" href="files/teacher-book.pdf" download hidden>PDF 내려받기</a>
+          </li>
+          <li>
+            <button type="button" class="zoomable" data-zoom="img/book-student.jpg" data-caption="학생 책 표지"><img src="img/book-student.jpg" alt="학생 책 표지" loading="lazy"></button>
+            <span>학생 책</span>
+            <a data-download="studentBook" href="files/student-book.pdf" download hidden>PDF 내려받기</a>
+          </li>
+          <li>
+            <button type="button" class="zoomable" data-zoom="img/poster-book-guide.jpg" data-caption="디지털 과학책 포스터 (안내용)"><img src="img/poster-book-guide.jpg" alt="디지털 과학책 안내용 포스터" loading="lazy"></button>
+            <span>디지털 과학책 포스터 (안내용)</span>
+            <a data-download="bookPosters" href="files/book-poster-guide.pdf" download hidden>PDF 내려받기</a>
+          </li>
+          <li>
+            <button type="button" class="zoomable" data-zoom="img/poster-book-class.jpg" data-caption="디지털 과학책 포스터 (교실용)"><img src="img/poster-book-class.jpg" alt="디지털 과학책 교실용 포스터" loading="lazy"></button>
+            <span>디지털 과학책 포스터 (교실용)</span>
+            <a data-download="bookPosters" href="files/book-poster-class.pdf" download hidden>PDF 내려받기</a>
+          </li>
+          <li>
+            <button type="button" class="zoomable" data-zoom="img/it-poster.jpg" data-caption="과학을 잇(IT)다 포스터"><img src="img/it-poster.jpg" alt="과학을 잇(IT)다 포스터" loading="lazy"></button>
+            <span>과학을 잇(IT)다 포스터</span>
+            <a data-download="itPoster" href="files/it-poster.pdf" download hidden>PDF 내려받기</a>
+          </li>
+        </ul>
+      </div>
+      <aside class="notes">
+        <p>복습 모드에서는 이 아래에 책자와 포스터 표지가 함께 보입니다. PDF 내려받기는 넣지 않았습니다.</p>
+      </aside>
+    </section>
+
+    <!-- 마무리 3. 사이트 QR과 연락처 -->
+    <section class="scene std contact" id="contact" data-part="4" data-label="다시 보기와 연락처">
+      <div class="contact-body">
+        <h2 class="thanks">고맙습니다</h2>
+        <p class="contact-who">
+          <strong data-bind="talk.speaker"></strong>
+          <span>(<span data-bind="talk.school"></span>)</span>
+        </p>
+        <dl class="contact-list">
+          <div><dt>연락처</dt><dd data-bind="talk.contact"></dd></div>
+          <div><dt>이 사이트</dt><dd data-site-address></dd></div>
+        </dl>
+      </div>
+      <div class="site-qr" data-site-qr></div>
+    </section>
+
+    <!-- 그림 크게 보기 -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="그림 크게 보기" hidden>
+      <img id="lightbox-img" alt="">
+      <p class="lightbox-cap" id="lightbox-cap"></p>
+      <button type="button" class="lightbox-prev" id="lightbox-prev">이전 장</button>
+      <button type="button" class="lightbox-next" id="lightbox-next">다음 장</button>
+      <button type="button" class="lightbox-close" id="lightbox-close">닫기</button>
+    </div>
+
+    <!-- 발표 모드: 화면 아래 진행 표시와 발표자 메모 -->
+    <footer class="rail" id="rail" aria-hidden="true">
+      <span class="rail-part" id="rail-part"></span>
+      <span class="rail-track" id="rail-track"></span>
+      <span class="rail-count" id="rail-count"></span>
+    </footer>
+    <div class="notes-panel" id="notes-panel" hidden></div>
+  </main>
+
+  <footer class="review-foot review-only">
+    <a href="?mode=present">발표 모드로 열기</a>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="lib/qr.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
