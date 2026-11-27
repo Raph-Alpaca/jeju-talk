@@ -1,8 +1,9 @@
 /*
  * 발표 사이트 동작
  * - data.js 값 채우기 (비어 있으면 "준비 중")
- * - 발표 모드: 한 화면에 한 장면, 방향키 이동, F·N·1·2·3 단축키, 진행 표시
- * - 복습 모드: 스크롤. 세 칸을 누르면 해당 부로 이동
+ * - 발표 모드(기본): 한 화면에 한 장면, 방향키 이동, F·N·1·2·3 단축키, 진행 표시
+ * - 복습 모드(휴대폰, 또는 주소 뒤 ?mode=review): 스크롤. 세 칸을 누르면 해당 부로 이동
+ * - 어느 모드로 열지는 index.html 맨 위의 짧은 스크립트가 정한다
  */
 (function () {
   "use strict";
@@ -404,6 +405,7 @@
   var railTrack = $("#rail-track");
   var railCount = $("#rail-count");
   var notesPanel = $("#notes-panel");
+  var modeSwitch = $("#mode-switch");
   var notesOn = false;
 
   // 무대(1920×1080)를 창 크기에 맞춘다
@@ -465,6 +467,7 @@
     rail.setAttribute("data-part", part);
     rail.classList.toggle("is-off", sc.getAttribute("data-rail") === "off");
     rail.classList.toggle("on-dark", sc.getAttribute("data-tone") === "dark");
+    if (modeSwitch) modeSwitch.classList.toggle("on-dark", sc.getAttribute("data-tone") === "dark");
     railPart.textContent = PART_LABEL[part] || "";
     railCount.textContent = (current + 1) + " / " + scenes.length;
     renderNotes();

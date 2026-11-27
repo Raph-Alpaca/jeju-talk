@@ -83,7 +83,7 @@ img { max-width: 100%; }
 :focus-visible { outline: 4px solid var(--p2-yellow); outline-offset: 4px; }
 
 .notes { display: none; }               /* 발표자 메모는 N 키로만 보인다 */
-.rail, .notes-panel { display: none; }
+.rail, .notes-panel, .mode-switch { display: none; }
 html.present .review-only { display: none !important; }
 html.review .present-only { display: none !important; }
 [hidden] { display: none !important; }
@@ -361,6 +361,19 @@ html.present .rail.is-off { display: none; }
 html.present .rail.on-dark { color: rgba(255, 255, 255, 0.85); }
 .rail.on-dark .rail-part { color: #fff; }
 .rail.on-dark .rail-track i { background: #fff; }
+
+/* 인터넷 주소로 들어온 방문자에게만: 넘기는 법과 복습 모드로 가는 링크 */
+html.present.hosted .mode-switch {
+  display: block;
+  position: absolute;
+  top: 28px;
+  right: 120px;
+  z-index: 5;
+  font-size: 22px;
+  color: var(--muted);
+}
+.mode-switch a { font-weight: 700; text-underline-offset: 4px; }
+html.present.hosted .mode-switch.on-dark { color: rgba(255, 255, 255, 0.88); }
 
 /* 발표자 메모 */
 html.present .notes-panel:not([hidden]) {

@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2026 창의융합교육 한마당 발표</title>
   <script>
-    // 주소 뒤에 ?mode=present 가 붙으면 발표 모드, 아니면 복습 모드
-    document.documentElement.className =
-      new URLSearchParams(location.search).get("mode") === "present" ? "present" : "review";
+    // 모드 정하기
+    // - 그냥 열면 발표 모드
+    // - 휴대폰처럼 좁거나 손가락으로 쓰는 화면은 방향키가 없으므로 복습 모드
+    // - 주소 뒤에 ?mode=present 또는 ?mode=review 를 붙이면 언제나 그 모드
+    // - 노트북에서 파일로 바로 열면(file:) 창 크기와 상관없이 발표 모드
+    (function () {
+      var asked = new URLSearchParams(location.search).get("mode");
+      var isFile = location.protocol === "file:";
+      var phoneLike = !isFile && window.matchMedia &&
+        (matchMedia("(max-width: 799px)").matches || matchMedia("(pointer: coarse)").matches);
+      var mode = asked === "present" || asked === "review" ? asked : (phoneLike ? "review" : "present");
+      // hosted: 인터넷 주소로 열린 경우. 이때만 "스크롤해서 읽기" 안내를 보인다
+      document.documentElement.className = mode + (isFile ? "" : " hosted");
+    })();
   </script>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -601,6 +612,9 @@
       <button type="button" class="lightbox-next" id="lightbox-next">다음 장</button>
       <button type="button" class="lightbox-close" id="lightbox-close">닫기</button>
     </div>
+
+    <!-- 발표 모드로 들어온 방문자를 위한 안내. 인터넷 주소로 열었을 때만 보이고, 파일로 연 발표 노트북에서는 보이지 않는다 -->
+    <p class="mode-switch" id="mode-switch">방향키 ← → 로 넘깁니다. <a href="?mode=review">스크롤해서 읽기</a></p>
 
     <!-- 발표 모드: 화면 아래 진행 표시와 발표자 메모 -->
     <footer class="rail" id="rail" aria-hidden="true">
